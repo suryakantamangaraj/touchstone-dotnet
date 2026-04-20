@@ -116,7 +116,7 @@ public static class TouchstoneParser
     /// </summary>
     /// <param name="fileName">The file name (e.g., "filter.s2p").</param>
     /// <returns>The number of ports, or 0 if it cannot be determined.</returns>
-    internal static int DetectPortCount(string fileName)
+    public static int DetectPortCount(string fileName)
     {
         var match = portCountRegex.Match(fileName);
         if (match.Success && int.TryParse(match.Groups[1].Value, out int ports))

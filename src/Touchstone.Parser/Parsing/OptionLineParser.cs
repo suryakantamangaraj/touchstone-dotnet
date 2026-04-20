@@ -7,7 +7,7 @@ namespace Touchstone.Parser.Parsing;
 /// Parses the Touchstone option line (starting with '#') into a
 /// <see cref="TouchstoneOptions"/> instance.
 /// </summary>
-internal static class OptionLineParser
+public static class OptionLineParser
 {
     /// <summary>
     /// Parses an option line string into <see cref="TouchstoneOptions"/>.
