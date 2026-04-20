@@ -21,7 +21,7 @@ namespace Touchstone.Parser.Parsing;
 /// </remarks>
 public static class TouchstoneParser
 {
-    private static readonly Regex PortCountRegex = new Regex(
+    private static readonly Regex _portCountRegex = new Regex(
         @"\.s(\d+)p$",
         RegexOptions.IgnoreCase | RegexOptions.Compiled);
 
@@ -118,7 +118,7 @@ public static class TouchstoneParser
     /// <returns>The number of ports, or 0 if it cannot be determined.</returns>
     internal static int DetectPortCount(string fileName)
     {
-        var match = PortCountRegex.Match(fileName);
+        var match = _portCountRegex.Match(fileName);
         if (match.Success && int.TryParse(match.Groups[1].Value, out int ports))
         {
             return ports;
