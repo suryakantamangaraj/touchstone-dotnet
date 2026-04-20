@@ -41,13 +41,13 @@ csharp_space_after_keywords_in_control_flow_statements = true
 # Naming conventions
 dotnet_naming_rule.private_fields_should_be_camel_case.severity = warning
 dotnet_naming_rule.private_fields_should_be_camel_case.symbols = private_fields
-dotnet_naming_rule.private_fields_should_be_camel_case.style = camel_case_underscore
+dotnet_naming_rule.private_fields_should_be_camel_case.style = camel_case
 
 dotnet_naming_symbols.private_fields.applicable_kinds = field
 dotnet_naming_symbols.private_fields.applicable_accessibilities = private, internal
 
-dotnet_naming_style.camel_case_underscore.capitalization = camel_case
-dotnet_naming_style.camel_case_underscore.required_prefix = _
+dotnet_naming_style.camel_case.capitalization = camel_case
+# No required prefix
 
 # Using directives
 dotnet_sort_system_directives_first = true

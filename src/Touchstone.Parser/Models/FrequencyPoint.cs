@@ -6,7 +6,7 @@ namespace Touchstone.Parser.Models;
 /// </summary>
 public sealed class FrequencyPoint
 {
-    private readonly NetworkParameter[,] _parameters;
+    private readonly NetworkParameter[,] parameterMatrix;
 
     /// <summary>
     /// Gets the frequency in Hertz.
@@ -39,8 +39,8 @@ public sealed class FrequencyPoint
         }
 
         FrequencyHz = frequencyHz;
-        _parameters = (NetworkParameter[,])parameters.Clone();
-        NumberOfPorts = _parameters.GetLength(0);
+        parameterMatrix = (NetworkParameter[,])parameters.Clone();
+        NumberOfPorts = parameterMatrix.GetLength(0);
     }
 
     /// <summary>
@@ -56,7 +56,7 @@ public sealed class FrequencyPoint
         {
             ValidateIndex(row, nameof(row));
             ValidateIndex(col, nameof(col));
-            return _parameters[row, col];
+            return parameterMatrix[row, col];
         }
     }
 
@@ -64,7 +64,7 @@ public sealed class FrequencyPoint
     /// Gets the full N×N parameter matrix as a cloned 2D array.
     /// </summary>
     /// <returns>A copy of the parameter matrix.</returns>
-    public NetworkParameter[,] GetParameterMatrix() => (NetworkParameter[,])_parameters.Clone();
+    public NetworkParameter[,] GetParameterMatrix() => (NetworkParameter[,])parameterMatrix.Clone();
 
     /// <inheritdoc/>
     public override string ToString() =>
