@@ -19,32 +19,44 @@ public static class TouchstoneDataExtensions
     /// </summary>
     /// <param name="data">The Touchstone data.</param>
     /// <returns>An enumerable of (frequency, parameter) tuples.</returns>
-    public static IEnumerable<(double FrequencyHz, NetworkParameter Value)> GetS11(this TouchstoneData data) =>
-        data.GetParameter(0, 0);
+    public static IEnumerable<(double FrequencyHz, NetworkParameter Value)> GetS11(this TouchstoneData data)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.GetParameter(0, 0);
+    }
 
     /// <summary>
     /// Gets the S21 (forward transmission) parameter across all frequency points.
     /// </summary>
     /// <param name="data">The Touchstone data.</param>
     /// <returns>An enumerable of (frequency, parameter) tuples.</returns>
-    public static IEnumerable<(double FrequencyHz, NetworkParameter Value)> GetS21(this TouchstoneData data) =>
-        data.GetParameter(1, 0);
+    public static IEnumerable<(double FrequencyHz, NetworkParameter Value)> GetS21(this TouchstoneData data)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.GetParameter(1, 0);
+    }
 
     /// <summary>
     /// Gets the S12 (reverse transmission) parameter across all frequency points.
     /// </summary>
     /// <param name="data">The Touchstone data.</param>
     /// <returns>An enumerable of (frequency, parameter) tuples.</returns>
-    public static IEnumerable<(double FrequencyHz, NetworkParameter Value)> GetS12(this TouchstoneData data) =>
-        data.GetParameter(0, 1);
+    public static IEnumerable<(double FrequencyHz, NetworkParameter Value)> GetS12(this TouchstoneData data)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.GetParameter(0, 1);
+    }
 
     /// <summary>
     /// Gets the S22 (output reflection) parameter across all frequency points.
     /// </summary>
     /// <param name="data">The Touchstone data.</param>
     /// <returns>An enumerable of (frequency, parameter) tuples.</returns>
-    public static IEnumerable<(double FrequencyHz, NetworkParameter Value)> GetS22(this TouchstoneData data) =>
-        data.GetParameter(1, 1);
+    public static IEnumerable<(double FrequencyHz, NetworkParameter Value)> GetS22(this TouchstoneData data)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.GetParameter(1, 1);
+    }
 
     // ──────────────────────────────────────────────────────────────────
     //  Frequency queries
@@ -56,24 +68,33 @@ public static class TouchstoneDataExtensions
     /// <param name="data">The Touchstone data.</param>
     /// <param name="unit">The target frequency unit.</param>
     /// <returns>An enumerable of frequency values in the specified unit.</returns>
-    public static IEnumerable<double> GetFrequenciesIn(this TouchstoneData data, FrequencyUnit unit) =>
-        data.FrequencyPoints.Select(fp => FrequencyConverter.FromHz(fp.FrequencyHz, unit));
+    public static IEnumerable<double> GetFrequenciesIn(this TouchstoneData data, FrequencyUnit unit)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.FrequencyPoints.Select(fp => FrequencyConverter.FromHz(fp.FrequencyHz, unit));
+    }
 
     /// <summary>
     /// Gets the minimum frequency in Hertz.
     /// </summary>
     /// <param name="data">The Touchstone data.</param>
     /// <returns>The minimum frequency.</returns>
-    public static double MinFrequencyHz(this TouchstoneData data) =>
-        data.FrequencyPoints.Min(fp => fp.FrequencyHz);
+    public static double MinFrequencyHz(this TouchstoneData data)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.FrequencyPoints.Min(fp => fp.FrequencyHz);
+    }
 
     /// <summary>
     /// Gets the maximum frequency in Hertz.
     /// </summary>
     /// <param name="data">The Touchstone data.</param>
     /// <returns>The maximum frequency.</returns>
-    public static double MaxFrequencyHz(this TouchstoneData data) =>
-        data.FrequencyPoints.Max(fp => fp.FrequencyHz);
+    public static double MaxFrequencyHz(this TouchstoneData data)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.FrequencyPoints.Max(fp => fp.FrequencyHz);
+    }
 
     // ──────────────────────────────────────────────────────────────────
     //  RF calculations
@@ -85,8 +106,11 @@ public static class TouchstoneDataExtensions
     /// </summary>
     /// <param name="data">The Touchstone data.</param>
     /// <returns>An enumerable of (frequency, insertion loss in dB) tuples.</returns>
-    public static IEnumerable<(double FrequencyHz, double InsertionLossDb)> ToInsertionLoss(this TouchstoneData data) =>
-        data.GetS21().Select(p => (p.FrequencyHz, -p.Value.MagnitudeDb));
+    public static IEnumerable<(double FrequencyHz, double InsertionLossDb)> ToInsertionLoss(this TouchstoneData data)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.GetS21().Select(p => (p.FrequencyHz, -p.Value.MagnitudeDb));
+    }
 
     /// <summary>
     /// Computes the return loss (|S11| in dB) across all frequency points.
@@ -94,8 +118,11 @@ public static class TouchstoneDataExtensions
     /// </summary>
     /// <param name="data">The Touchstone data.</param>
     /// <returns>An enumerable of (frequency, return loss in dB) tuples.</returns>
-    public static IEnumerable<(double FrequencyHz, double ReturnLossDb)> ToReturnLoss(this TouchstoneData data) =>
-        data.GetS11().Select(p => (p.FrequencyHz, -p.Value.MagnitudeDb));
+    public static IEnumerable<(double FrequencyHz, double ReturnLossDb)> ToReturnLoss(this TouchstoneData data)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.GetS11().Select(p => (p.FrequencyHz, -p.Value.MagnitudeDb));
+    }
 
     /// <summary>
     /// Computes the Voltage Standing Wave Ratio (VSWR) from S11 across all frequency points.
@@ -103,13 +130,16 @@ public static class TouchstoneDataExtensions
     /// </summary>
     /// <param name="data">The Touchstone data.</param>
     /// <returns>An enumerable of (frequency, VSWR) tuples.</returns>
-    public static IEnumerable<(double FrequencyHz, double Vswr)> ToVswr(this TouchstoneData data) =>
-        data.GetS11().Select(p =>
+    public static IEnumerable<(double FrequencyHz, double Vswr)> ToVswr(this TouchstoneData data)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.GetS11().Select(p =>
         {
             double mag = p.Value.Magnitude;
             double vswr = mag >= 1.0 ? double.PositiveInfinity : (1.0 + mag) / (1.0 - mag);
             return (p.FrequencyHz, vswr);
         });
+    }
 
     // ──────────────────────────────────────────────────────────────────
     //  Filtering
@@ -124,6 +154,9 @@ public static class TouchstoneDataExtensions
     /// <returns>A new <see cref="TouchstoneData"/> with filtered frequency points.</returns>
     public static TouchstoneData Where(this TouchstoneData data, Func<FrequencyPoint, bool> predicate)
     {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        if (predicate == null) throw new ArgumentNullException(nameof(predicate));
+
         var filtered = data.FrequencyPoints.Where(predicate).ToList();
         return new TouchstoneData(data.Options, data.NumberOfPorts, filtered, data.Comments, data.FileName);
     }
@@ -135,8 +168,11 @@ public static class TouchstoneDataExtensions
     /// <param name="minHz">The minimum frequency in Hz.</param>
     /// <param name="maxHz">The maximum frequency in Hz.</param>
     /// <returns>A new <see cref="TouchstoneData"/> with filtered frequency points.</returns>
-    public static TouchstoneData InFrequencyRange(this TouchstoneData data, double minHz, double maxHz) =>
-        data.Where(fp => fp.FrequencyHz >= minHz && fp.FrequencyHz <= maxHz);
+    public static TouchstoneData InFrequencyRange(this TouchstoneData data, double minHz, double maxHz)
+    {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        return data.Where(fp => fp.FrequencyHz >= minHz && fp.FrequencyHz <= maxHz);
+    }
 
     // ──────────────────────────────────────────────────────────────────
     //  CSV Export
@@ -155,7 +191,11 @@ public static class TouchstoneDataExtensions
         FrequencyUnit frequencyUnit = FrequencyUnit.Hz,
         DataFormat dataFormat = DataFormat.DecibelAngle)
     {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        if (writer == null) throw new ArgumentNullException(nameof(writer));
+
         int n = data.NumberOfPorts;
+// ... (rest of the file remains same, skipping for brevity in replacement but I'll ensure it's complete)
 
         // Write header
         var headers = new List<string> { $"Frequency ({frequencyUnit})" };

@@ -55,6 +55,7 @@ public static class TouchstoneParser
     /// <exception cref="TouchstoneParserException">Thrown when the content is invalid.</exception>
     public static TouchstoneData Parse(Stream stream, string? fileName = null)
     {
+        if (stream == null) throw new ArgumentNullException(nameof(stream));
         int portCount = fileName != null ? DetectPortCount(fileName) : 0;
         using var reader = new StreamReader(stream, leaveOpen: true);
         return ParseInternal(reader, portCount, fileName);
@@ -69,6 +70,7 @@ public static class TouchstoneParser
     /// <exception cref="TouchstoneParserException">Thrown when the content is invalid.</exception>
     public static TouchstoneData Parse(TextReader reader, string? fileName = null)
     {
+        if (reader == null) throw new ArgumentNullException(nameof(reader));
         int portCount = fileName != null ? DetectPortCount(fileName) : 0;
         return ParseInternal(reader, portCount, fileName);
     }
@@ -103,6 +105,7 @@ public static class TouchstoneParser
     /// <returns>A <see cref="TouchstoneData"/> instance containing the parsed data.</returns>
     public static TouchstoneData ParseString(string content, string? fileName = null)
     {
+        if (content == null) throw new ArgumentNullException(nameof(content));
         int portCount = fileName != null ? DetectPortCount(fileName) : 0;
         using var reader = new StringReader(content);
         return ParseInternal(reader, portCount, fileName);

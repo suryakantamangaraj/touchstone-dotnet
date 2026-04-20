@@ -17,6 +17,9 @@ public static class TouchstoneWriter
     /// <param name="options">Optional output options. If null, uses the original options from the data.</param>
     public static void Write(TouchstoneData data, string filePath, TouchstoneOptions? options = null)
     {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+        if (string.IsNullOrEmpty(filePath)) throw new ArgumentException("File path cannot be null or empty.", nameof(filePath));
+
         using var writer = new StreamWriter(filePath);
         Write(data, writer, options);
     }
@@ -108,6 +111,8 @@ public static class TouchstoneWriter
     /// <returns>The Touchstone content as a string.</returns>
     public static string WriteToString(TouchstoneData data, TouchstoneOptions? options = null)
     {
+        if (data == null) throw new ArgumentNullException(nameof(data));
+
         using var writer = new StringWriter();
         Write(data, writer, options);
         return writer.ToString();
