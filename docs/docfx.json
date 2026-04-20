@@ -1,0 +1,49 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": [
+            "src/Touchstone.Parser/Touchstone.Parser.csproj"
+          ],
+          "cwd": ".."
+        }
+      ],
+      "dest": "api",
+      "disableDefaultFilter": false
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": [
+          "api/**.yml",
+          "api/index.md"
+        ]
+      },
+      {
+        "files": [
+          "index.md",
+          "toc.yml"
+        ]
+      }
+    ],
+    "resource": [
+      {
+        "files": [
+          "images/**"
+        ]
+      }
+    ],
+    "output": "_site",
+    "template": [
+      "default",
+      "modern"
+    ],
+    "globalMetadata": {
+      "_appTitle": "Touchstone.Parser Documentation",
+      "_appFooter": "<span>Copyright © 2026 Surya Raj</span>",
+      "_enableSearch": true
+    }
+  }
+}

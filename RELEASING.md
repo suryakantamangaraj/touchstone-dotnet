@@ -40,4 +40,4 @@ You can manually trigger a release or override the versioning from the GitHub UI
 ## Best Practices
 1. **Always bump the version**: Before merging a feature or fix to `main`, ensure the `<Version>` in the `.csproj` has been updated if you want a new release.
 2. **Review Release Notes**: After an automated release, review the auto-generated notes on the GitHub Releases page to ensure they accurately reflect the changes.
-3. **NuGet Secrets**: Ensure `TOUCHSTONE_PARSER` (NuGet API Key) is correctly set in the repository secrets.
+3. **NuGet Secrets**: Ensure NuGet API Key is correctly set in the repository secrets.

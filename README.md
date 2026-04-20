@@ -3,7 +3,10 @@
 > **A .NET library for Touchstone `.sNp` parsing and S‑parameter analysis in RF/microwave engineering.**
 
 [![NuGet](https://img.shields.io/nuget/v/Touchstone.Parser?style=flat-square&logo=nuget&label=NuGet)](https://www.nuget.org/packages/Touchstone.Parser)
+[![NuGet Downloads](https://img.shields.io/nuget/dt/Touchstone.Parser?style=flat-square&logo=nuget)](https://www.nuget.org/packages/Touchstone.Parser)
 [![Build](https://img.shields.io/github/actions/workflow/status/suryakantamangaraj/touchstone-dotnet/ci.yml?branch=main&style=flat-square&logo=github&label=CI)](https://github.com/suryakantamangaraj/touchstone-dotnet/actions/workflows/ci.yml)
+[![Coverage](https://img.shields.io/codecov/c/github/suryakantamangaraj/touchstone-dotnet?style=flat-square&logo=codecov)](https://codecov.io/gh/suryakantamangaraj/touchstone-dotnet)
+[![Docs](https://img.shields.io/badge/docs-GitHub%20Pages-blue?style=flat-square&logo=github)](https://suryakantamangaraj.github.io/touchstone-dotnet/)
 [![License](https://img.shields.io/github/license/suryakantamangaraj/touchstone-dotnet?style=flat-square)](LICENSE)
 [![.NET](https://img.shields.io/badge/.NET-6.0%20%7C%20Standard%202.1-512BD4?style=flat-square&logo=dotnet)](https://dotnet.microsoft.com/)
 

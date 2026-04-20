@@ -9,6 +9,7 @@
     <PackageIcon>icon.png</PackageIcon>
     <RootNamespace>Touchstone.Parser</RootNamespace>
     <AssemblyName>Touchstone.Parser</AssemblyName>
+    <PackageReleaseNotes>See https://github.com/suryakantamangaraj/touchstone-dotnet/blob/main/CHANGELOG.md for release notes.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
