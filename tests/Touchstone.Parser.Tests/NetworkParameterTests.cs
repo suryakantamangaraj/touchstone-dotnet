@@ -7,7 +7,7 @@ namespace Touchstone.Parser.Tests;
 
 public class NetworkParameterTests
 {
-    private const double Tolerance = 1e-10;
+    private const double tolerance = 1e-10;
 
     [Fact]
     public void FromRealImaginary_StoresCorrectly()
@@ -21,8 +21,8 @@ public class NetworkParameterTests
     public void FromMagnitudeAngle_0Degrees()
     {
         var p = NetworkParameter.FromMagnitudeAngle(1.0, 0.0);
-        p.Real.Should().BeApproximately(1.0, Tolerance);
-        p.Imaginary.Should().BeApproximately(0.0, Tolerance);
+        p.Real.Should().BeApproximately(1.0, tolerance);
+        p.Imaginary.Should().BeApproximately(0.0, tolerance);
     }
 
     [Fact]
@@ -37,8 +37,8 @@ public class NetworkParameterTests
     public void FromDecibelAngle_0dB()
     {
         var p = NetworkParameter.FromDecibelAngle(0.0, 0.0);
-        p.Real.Should().BeApproximately(1.0, Tolerance);
-        p.Imaginary.Should().BeApproximately(0.0, Tolerance);
+        p.Real.Should().BeApproximately(1.0, tolerance);
+        p.Imaginary.Should().BeApproximately(0.0, tolerance);
     }
 
     [Fact]
@@ -52,7 +52,7 @@ public class NetworkParameterTests
     public void Magnitude_3_4_Returns5()
     {
         var p = new NetworkParameter(3.0, 4.0);
-        p.Magnitude.Should().BeApproximately(5.0, Tolerance);
+        p.Magnitude.Should().BeApproximately(5.0, tolerance);
     }
 
     [Fact]
@@ -109,8 +109,8 @@ public class NetworkParameterTests
     public void Reciprocal_Correct()
     {
         var r = new NetworkParameter(3.0, 4.0).Reciprocal();
-        r.Real.Should().BeApproximately(0.12, Tolerance);
-        r.Imaginary.Should().BeApproximately(-0.16, Tolerance);
+        r.Real.Should().BeApproximately(0.12, tolerance);
+        r.Imaginary.Should().BeApproximately(-0.16, tolerance);
     }
 
     [Fact]
@@ -132,8 +132,8 @@ public class NetworkParameterTests
     public void Multiply_ReturnsProduct()
     {
         var r = new NetworkParameter(1.0, 2.0).Multiply(new NetworkParameter(3.0, 4.0));
-        r.Real.Should().BeApproximately(-5.0, Tolerance);
-        r.Imaginary.Should().BeApproximately(10.0, Tolerance);
+        r.Real.Should().BeApproximately(-5.0, tolerance);
+        r.Imaginary.Should().BeApproximately(10.0, tolerance);
     }
 
     [Fact]
