@@ -24,8 +24,8 @@ public class NPortTests
         
         // S11 = 0.1 + 0.0j
         fp1[0, 0].Real.Should().Be(0.1);
-        // S13 = 0.9 + 0.0j (row 0, col 2)
-        fp1[0, 2].Real.Should().Be(0.9);
+        // S12 = 0.9 + 0.0j (row 0, col 1)
+        fp1[0, 1].Real.Should().Be(0.9);
         // S44 = 0.1 + 0.0j (row 3, col 3)
         fp1[3, 3].Real.Should().Be(0.1);
     }
@@ -38,6 +38,6 @@ public class NPortTests
         
         fp2.FrequencyHz.Should().Be(2.0e9);
         fp2[0, 0].Real.Should().Be(0.2);
-        fp2[0, 2].Real.Should().Be(0.8);
+        fp2[0, 1].Real.Should().Be(0.8);
     }
 }
