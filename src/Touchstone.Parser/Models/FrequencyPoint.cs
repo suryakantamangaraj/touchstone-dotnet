@@ -27,6 +27,7 @@ public sealed class FrequencyPoint
     /// <exception cref="ArgumentOutOfRangeException">Thrown when frequency is negative.</exception>
     public FrequencyPoint(double frequencyHz, NetworkParameter[,] parameters)
     {
+        if (parameters == null) throw new ArgumentNullException(nameof(parameters));
         if (frequencyHz < 0)
         {
             throw new ArgumentOutOfRangeException(nameof(frequencyHz), "Frequency must be non-negative.");

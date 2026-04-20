@@ -65,9 +65,13 @@ public sealed class TouchstoneData
         IReadOnlyList<string> comments,
         string? fileName = null)
     {
-        Options = options ?? throw new ArgumentNullException(nameof(options));
-        FrequencyPoints = frequencyPoints ?? throw new ArgumentNullException(nameof(frequencyPoints));
-        Comments = comments ?? throw new ArgumentNullException(nameof(comments));
+        if (options == null) throw new ArgumentNullException(nameof(options));
+        if (frequencyPoints == null) throw new ArgumentNullException(nameof(frequencyPoints));
+        if (comments == null) throw new ArgumentNullException(nameof(comments));
+
+        Options = options;
+        FrequencyPoints = frequencyPoints;
+        Comments = comments;
 
         if (numberOfPorts < 1)
         {

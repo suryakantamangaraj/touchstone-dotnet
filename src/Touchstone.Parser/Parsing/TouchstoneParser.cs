@@ -57,7 +57,7 @@ public static class TouchstoneParser
     {
         if (stream == null) throw new ArgumentNullException(nameof(stream));
         int portCount = fileName != null ? DetectPortCount(fileName) : 0;
-        using var reader = new StreamReader(stream, leaveOpen: true);
+        using var reader = new StreamReader(stream, System.Text.Encoding.UTF8, true, 1024, leaveOpen: true);
         return ParseInternal(reader, portCount, fileName);
     }
 
