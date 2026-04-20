@@ -70,7 +70,7 @@ public class EdgeCaseTests
     {
         var act = () => new TouchstoneData(
             TouchstoneOptions.Default, 0,
-            new List<FrequencyPoint>(), new List<string>());
+            new List<FrequencyPoint>(), new List<string>(), null);
         act.Should().Throw<ArgumentOutOfRangeException>();
     }
 
@@ -78,7 +78,7 @@ public class EdgeCaseTests
     public void TouchstoneData_NullOptions_Throws()
     {
         var act = () => new TouchstoneData(
-            null!, 1, new List<FrequencyPoint>(), new List<string>());
+            null!, 1, new List<FrequencyPoint>(), new List<string>(), null);
         act.Should().Throw<ArgumentNullException>();
     }
 
