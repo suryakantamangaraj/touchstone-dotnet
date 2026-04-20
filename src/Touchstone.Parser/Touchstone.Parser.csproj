@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;netstandard2.1</TargetFrameworks>
+    <PackageId>Touchstone.Parser</PackageId>
+    <Version>0.1.0</Version>
+    <Description>A .NET library for Touchstone .sNp parsing and S-parameter analysis in RF/microwave engineering. Strongly typed classes, LINQ-friendly APIs, and seamless integration into simulation workflows.</Description>
+    <PackageTags>touchstone;s-parameter;s2p;snp;rf;microwave;network-analysis;vna;scattering-parameters;eda</PackageTags>
+    <PackageIcon>icon.png</PackageIcon>
+    <RootNamespace>Touchstone.Parser</RootNamespace>
+    <AssemblyName>Touchstone.Parser</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+</Project>
