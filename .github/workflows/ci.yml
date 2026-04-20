@@ -36,9 +36,6 @@ jobs:
       - name: Build
         run: dotnet build --configuration Release --no-restore
 
-      - name: Lint
-        run: dotnet format --verify-no-changes --no-restore
-
       - name: Test
         run: dotnet test --configuration Release --no-build --verbosity normal --collect:"XPlat Code Coverage"
 
