@@ -292,12 +292,6 @@ public static class TouchstoneParser
     private static async Task<string[]> ReadAllLinesAsync(string filePath, CancellationToken cancellationToken)
     {
         var lines = new List<string>();
-#if NET6_0_OR_GREATER
-        await foreach (string line in File.ReadLinesAsync(filePath, cancellationToken).ConfigureAwait(false))
-        {
-            lines.Add(line);
-        }
-#else
         using var reader = new StreamReader(filePath);
         string? line;
         while ((line = await reader.ReadLineAsync().ConfigureAwait(false)) != null)
@@ -305,7 +299,6 @@ public static class TouchstoneParser
             cancellationToken.ThrowIfCancellationRequested();
             lines.Add(line);
         }
-#endif
         return lines.ToArray();
     }
 }
