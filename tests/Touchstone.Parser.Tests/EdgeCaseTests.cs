@@ -8,17 +8,35 @@ namespace Touchstone.Parser.Tests;
 public class EdgeCaseTests
 {
     [Fact]
-    public void Parse_EmptyString_ReturnsEmptyData()
+    public void Parse_EmptyString_WithKnownPortCount_ReturnsEmptyData()
     {
-        var act = () => Parsing.TouchstoneParser.ParseString("", "test.s1p");
+        var data = Parsing.TouchstoneParser.ParseString("", "test.s1p");
+        data.NumberOfPorts.Should().Be(1);
+        data.Count.Should().Be(0);
+    }
+
+    [Fact]
+    public void Parse_EmptyString_WithoutFileName_ThrowsException()
+    {
+        var act = () => Parsing.TouchstoneParser.ParseString("");
         act.Should().Throw<TouchstoneParserException>();
     }
 
     [Fact]
-    public void Parse_OnlyComments_ThrowsException()
+    public void Parse_OnlyComments_WithKnownPortCount_ReturnsEmptyData()
     {
         string content = "! comment 1\n! comment 2\n";
-        var act = () => Parsing.TouchstoneParser.ParseString(content, "test.s1p");
+        var data = Parsing.TouchstoneParser.ParseString(content, "test.s1p");
+        data.NumberOfPorts.Should().Be(1);
+        data.Count.Should().Be(0);
+        data.Comments.Should().HaveCount(2);
+    }
+
+    [Fact]
+    public void Parse_OnlyComments_WithoutFileName_ThrowsException()
+    {
+        string content = "! comment 1\n! comment 2\n";
+        var act = () => Parsing.TouchstoneParser.ParseString(content);
         act.Should().Throw<TouchstoneParserException>();
     }
 

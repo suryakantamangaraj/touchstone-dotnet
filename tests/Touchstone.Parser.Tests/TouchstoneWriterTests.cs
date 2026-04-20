@@ -72,7 +72,9 @@ public class TouchstoneWriterTests
 
         string output = TouchstoneWriter.WriteToString(data);
 
-        output.Should().Contain("! Keysight PNA-X N5247B");
+        // Comments should be preserved in the output
+        output.Should().Contain("! Project: RF Filter Characterization");
+        output.Should().Contain("! Engineer: John Smith");
     }
 
     [Fact]
