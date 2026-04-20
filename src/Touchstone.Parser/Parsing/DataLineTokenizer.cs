@@ -23,6 +23,8 @@ internal sealed class DataLineTokenizer
     /// <exception cref="TouchstoneParserException">Thrown when a non-numeric token is encountered.</exception>
     public void AddLine(string line, int lineNumber)
     {
+        if (line == null) throw new ArgumentNullException(nameof(line));
+
         // Remove inline comments
         int commentIndex = line.IndexOf('!');
         if (commentIndex >= 0)

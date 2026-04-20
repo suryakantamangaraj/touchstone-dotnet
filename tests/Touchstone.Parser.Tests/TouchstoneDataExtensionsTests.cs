@@ -97,4 +97,23 @@ public class TouchstoneDataExtensionsTests
         var lines = csv.Split('\n', StringSplitOptions.RemoveEmptyEntries);
         lines.Should().HaveCount(7); // 1 header + 6 data
     }
+
+    [Fact]
+    public void ToCsvString_RiFormat_ProducesCorrectHeaders()
+    {
+        var data = LoadBandpassFilter();
+        string csv = data.ToCsvString(FrequencyUnit.MHz, DataFormat.RealImaginary);
+
+        csv.Should().Contain("Frequency (MHz)");
+        csv.Should().Contain("S11_Re");
+        csv.Should().Contain("S11_Im");
+    }
+
+    [Fact]
+    public void GetParameter_InvalidIndices_ThrowsArgumentOutOfRangeException()
+    {
+        var data = LoadBandpassFilter();
+        var act = () => data.GetParameter(2, 0).ToList(); // 2-port only has 0,1
+        act.Should().Throw<ArgumentOutOfRangeException>();
+    }
 }

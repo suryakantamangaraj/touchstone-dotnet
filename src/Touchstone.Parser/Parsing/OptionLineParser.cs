@@ -18,6 +18,8 @@ public static class OptionLineParser
     /// <exception cref="TouchstoneParserException">Thrown when the option line is malformed.</exception>
     public static TouchstoneOptions Parse(string line, int lineNumber)
     {
+        if (line == null) throw new ArgumentNullException(nameof(line));
+
         // Remove leading '#' and trim
         string content = line.TrimStart();
         if (content.StartsWith("#", StringComparison.Ordinal))

@@ -34,6 +34,7 @@ public static class TouchstoneParser
     /// <exception cref="TouchstoneParserException">Thrown when the file content is invalid.</exception>
     public static TouchstoneData Parse(string filePath)
     {
+        if (filePath == null) throw new ArgumentNullException(nameof(filePath));
         if (!File.Exists(filePath))
         {
             throw new FileNotFoundException($"Touchstone file not found: '{filePath}'.", filePath);
@@ -83,6 +84,8 @@ public static class TouchstoneParser
     /// <returns>A <see cref="TouchstoneData"/> instance containing the parsed data.</returns>
     public static async Task<TouchstoneData> ParseAsync(string filePath, CancellationToken cancellationToken = default)
     {
+        if (filePath == null) throw new ArgumentNullException(nameof(filePath));
+
         if (!File.Exists(filePath))
         {
             throw new FileNotFoundException($"Touchstone file not found: '{filePath}'.", filePath);
@@ -118,6 +121,7 @@ public static class TouchstoneParser
     /// <returns>The number of ports, or 0 if it cannot be determined.</returns>
     public static int DetectPortCount(string fileName)
     {
+        if (fileName == null) throw new ArgumentNullException(nameof(fileName));
         var match = portCountRegex.Match(fileName);
         if (match.Success && int.TryParse(match.Groups[1].Value, out int ports))
         {

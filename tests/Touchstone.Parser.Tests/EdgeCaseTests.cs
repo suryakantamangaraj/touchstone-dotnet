@@ -90,4 +90,42 @@ public class EdgeCaseTests
         data.Count.Should().Be(1);
         data.FrequencyPoints[0][0, 0].Real.Should().BeApproximately(0.1, 1e-10);
     }
+
+    [Fact]
+    public void Parse_MixedCaseOptions_ParsesCorrectly()
+    {
+        string content = "# mHz s ri r 50\n100 0.5 0.3";
+        var data = Parsing.TouchstoneParser.ParseString(content, "test.s1p");
+        data.Options.FrequencyUnit.Should().Be(FrequencyUnit.MHz);
+    }
+
+    [Fact]
+    public void Parse_ExtraWhitespace_ParsesCorrectly()
+    {
+        string content = "  #   GHZ   S   RI   R   50  \n  1.0     0.1    0.2  ";
+        var data = Parsing.TouchstoneParser.ParseString(content, "test.s1p");
+        data.Count.Should().Be(1);
+        data.FrequencyPoints[0][0, 0].Real.Should().BeApproximately(0.1, 1e-10);
+    }
+
+    [Fact]
+    public void Parse_NullPath_ThrowsArgumentNullException()
+    {
+        var act = () => Parsing.TouchstoneParser.Parse((string)null!);
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void OptionLineParser_NullLine_ThrowsArgumentNullException()
+    {
+        var act = () => OptionLineParser.Parse(null!, 1);
+        act.Should().Throw<ArgumentNullException>();
+    }
+
+    [Fact]
+    public void DetectPortCount_NullFileName_ThrowsArgumentNullException()
+    {
+        var act = () => Parsing.TouchstoneParser.DetectPortCount(null!);
+        act.Should().Throw<ArgumentNullException>();
+    }
 }
