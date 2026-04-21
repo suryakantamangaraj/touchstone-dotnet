@@ -18,11 +18,7 @@ We take the security of our library seriously. If you believe you have found a s
 Instead, please send an email to **bugreport@suryaraj.com**.
 
 ### What to include in your report:
-
-- A descriptive title for the vulnerability.
-- A detailed description of the vulnerability and its potential impact.
-- Step-by-step instructions to reproduce the issue.
-- (Optional) A proof-of-concept script or file.
+Please include the information requested in our [Bug Report Template](.github/ISSUE_TEMPLATE/bug_report.md) to help us investigate the issue efficiently.
 
 ### Our Response Process:
 
