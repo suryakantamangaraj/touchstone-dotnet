@@ -195,7 +195,6 @@ public static class TouchstoneDataExtensions
         if (writer == null) throw new ArgumentNullException(nameof(writer));
 
         int n = data.NumberOfPorts;
-// ... (rest of the file remains same, skipping for brevity in replacement but I'll ensure it's complete)
 
         // Write header
         var headers = new List<string> { $"Frequency ({frequencyUnit})" };

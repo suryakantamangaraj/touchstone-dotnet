@@ -17,11 +17,11 @@ public class NPortTests
 
         data.NumberOfPorts.Should().Be(4);
         data.Count.Should().Be(2);
-        
+
         // Check first frequency point
         var fp1 = data.FrequencyPoints[0];
         fp1.FrequencyHz.Should().Be(1.0e9);
-        
+
         // S11 = 0.1 + 0.0j
         fp1[0, 0].Real.Should().Be(0.1);
         // S12 = 0.9 + 0.0j (row 0, col 1)
@@ -35,7 +35,7 @@ public class NPortTests
     {
         var data = Parsing.TouchstoneParser.Parse(GetTestDataPath("filter_4port.s4p"));
         var fp2 = data.FrequencyPoints[1];
-        
+
         fp2.FrequencyHz.Should().Be(2.0e9);
         fp2[0, 0].Real.Should().Be(0.2);
         fp2[0, 1].Real.Should().Be(0.8);

@@ -57,7 +57,7 @@ public class TouchstoneParserTests
     {
         var data = Parsing.TouchstoneParser.Parse(GetTestDataPath("simple.s1p"));
 
-        data.Comments.Should().HaveCountGreaterOrEqualTo(3);
+        data.Comments.Should().HaveCountGreaterThanOrEqualTo(3);
         data.Comments[0].Should().Contain("Simple 1-port");
     }
 
@@ -141,7 +141,7 @@ public class TouchstoneParserTests
     {
         var data = Parsing.TouchstoneParser.Parse(GetTestDataPath("comments_only.s2p"));
 
-        data.Comments.Should().HaveCountGreaterOrEqualTo(10);
+        data.Comments.Should().HaveCountGreaterThanOrEqualTo(10);
         data.Comments.Should().Contain(c => c.Contains("Keysight PNA-X"));
     }
 
