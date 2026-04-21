@@ -6,7 +6,7 @@ namespace Touchstone.Parser.Benchmarks;
 [MemoryDiagnoser]
 public class ParserBenchmarks
 {
-    private string _s2pContent = string.Empty;
+    private string s2pContent = string.Empty;
 
     [GlobalSetup]
     public void Setup()
@@ -18,13 +18,13 @@ public class ParserBenchmarks
         {
             sb.AppendLine($"{i * 0.1:F1} 0.1 0.2 0.9 0.0 0.9 0.0 0.1 0.2");
         }
-        _s2pContent = sb.ToString();
+        s2pContent = sb.ToString();
     }
 
     [Benchmark]
     public void ParseS2pString()
     {
-        TouchstoneParser.ParseString(_s2pContent, "benchmark.s2p");
+        TouchstoneParser.ParseString(s2pContent, "benchmark.s2p");
     }
 }
 
