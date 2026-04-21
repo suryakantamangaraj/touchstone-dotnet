@@ -15,7 +15,7 @@ We take the security of our library seriously. If you believe you have found a s
 
 **Please do not open a public GitHub issue for security vulnerabilities.**
 
-Instead, please send an email to **[INSERT SECURITY EMAIL]**.
+Instead, please send an email to **bugreport@suryaraj.com**.
 
 ### What to include in your report:
 

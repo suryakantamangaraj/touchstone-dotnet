@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2026-04-21
+
+### Added
+- **Visualization Example**: Added plotting demonstration using ScottPlot.
+- **Project Governance**: Added Issue and Pull Request templates.
+- **Centralized Package Management**: Migrated to `Directory.Packages.props`.
+- **Strong-Name Signing**: Enabled assembly signing for enterprise compatibility.
+
+### Fixed
+- Resolved CI build failures related to FluentAssertions v8 API changes.
+- Fixed whitespace and formatting issues in library and tests.
+
 ## [0.1.0] - 2026-04-20
 
 ### Added
