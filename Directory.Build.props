@@ -25,6 +25,9 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
+    
+    <!-- Runtime Roll Forward (Allows running on newer .NET versions if target is missing) -->
+    <RollForward>Major</RollForward>
 
     <!-- Strong-Name Signing (Only enabled in CI to avoid Mac compatibility issues) -->
     <SignAssembly Condition="'$(CI)' == 'true'">true</SignAssembly>
