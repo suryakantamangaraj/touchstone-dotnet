@@ -6,6 +6,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
+    <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <!-- NuGet Package Metadata -->
@@ -28,10 +29,6 @@
     
     <!-- Runtime Roll Forward (Allows running on newer .NET versions if target is missing) -->
     <RollForward>Major</RollForward>
-
-    <!-- Strong-Name Signing (Only enabled in CI to avoid Mac compatibility issues) -->
-    <SignAssembly Condition="'$(CI)' == 'true'">true</SignAssembly>
-    <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)touchstone.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
   <ItemGroup>
