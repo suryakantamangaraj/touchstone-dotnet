@@ -25,11 +25,17 @@ jobs:
         with:
           dotnet-version: 8.0.x
 
+      - name: Restore dependencies
+        run: dotnet restore src/Touchstone.Parser/Touchstone.Parser.csproj
+
       - name: Install DocFX
         run: dotnet tool update -g docfx
 
+      - name: Generate API metadata
+        run: docfx metadata docs/docfx.json
+
       - name: Build Docs
-        run: docfx docs/docfx.json
+        run: docfx build docs/docfx.json
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

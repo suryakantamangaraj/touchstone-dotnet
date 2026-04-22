@@ -6,11 +6,14 @@
           "files": [
             "src/Touchstone.Parser/Touchstone.Parser.csproj"
           ],
-          "cwd": ".."
+          "src": ".."
         }
       ],
       "dest": "api",
-      "disableDefaultFilter": false
+      "disableDefaultFilter": false,
+      "properties": {
+        "TargetFramework": "net6.0"
+      }
     }
   ],
   "build": {
@@ -23,7 +26,7 @@
       },
       {
         "files": [
-          "index.md",
+          "*.md",
           "toc.yml"
         ]
       }
@@ -42,7 +45,7 @@
     ],
     "globalMetadata": {
       "_appTitle": "Touchstone.Parser Documentation",
-      "_appFooter": "<span>Copyright © 2026 Surya Raj</span>",
+      "_appFooter": "<span>Copyright © 2026 <a href='https://suryaraj.com'>Surya Raj</a></span>",
       "_enableSearch": true
     }
   }
