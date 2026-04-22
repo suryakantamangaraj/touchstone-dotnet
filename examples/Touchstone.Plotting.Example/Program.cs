@@ -1,4 +1,5 @@
 using ScottPlot;
+using Touchstone.Parser.Models;
 using Touchstone.Parser.Parsing;
 using Touchstone.Parser.Utilities;
 
@@ -26,11 +27,11 @@ var plt = new ScottPlot.Plot();
 
 // Add S11 and S21 curves
 var sig11 = plt.Add.Scatter(frequencies, s11Db);
-sig11.Label = "S11 (Return Loss)";
+sig11.LegendText = "S11 (Return Loss)";
 sig11.LineWidth = 2;
 
 var sig21 = plt.Add.Scatter(frequencies, s21Db);
-sig21.Label = "S21 (Insertion Loss)";
+sig21.LegendText = "S21 (Insertion Loss)";
 sig21.LineWidth = 2;
 
 // Customize plot appearance
