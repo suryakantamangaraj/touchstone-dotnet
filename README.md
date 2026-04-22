@@ -158,7 +158,7 @@ touchstone-dotnet/
 | Touchstone v1.0 / v1.1 | ✅ |
 | 1‑port (`.s1p`) | ✅ |
 | 2‑port (`.s2p`) | ✅ |
-| 3+ port (`.s3p`, `.s4p`, ...) | ✅ |
+| Multi-port (`.s3p`, `.s4p`, ...) | ✅ |
 | Real-Imaginary (RI) | ✅ |
 | Magnitude-Angle (MA) | ✅ |
 | Decibel-Angle (DB) | ✅ |
@@ -183,6 +183,13 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 ---
 
+## 💬 Community
+
+- ⭐ **Star this repo** and related RF/microwave projects to help them grow — then mention your project in context to build visibility.
+- 💡 **Share feedback** via [GitHub Discussions](https://github.com/suryakantamangaraj/touchstone-dotnet/discussions) — we'd love to hear how you're using the library, what's working, and what could be better.
+
+---
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
@@ -198,5 +205,5 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  <em>Built for the RF/microwave engineering community</em> 📡
+  Made by <a href="https://suryaraj.com">suryamangaraj</a> · Built for the RF/microwave engineering community 📡
 </p>
