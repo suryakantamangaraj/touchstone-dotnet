@@ -26,10 +26,9 @@
     <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
 
-    <!-- Strong-Name Signing -->
-    <SignAssembly>true</SignAssembly>
+    <!-- Strong-Name Signing (Only enabled in CI to avoid Mac compatibility issues) -->
+    <SignAssembly Condition="'$(CI)' == 'true'">true</SignAssembly>
     <AssemblyOriginatorKeyFile>$(MSBuildThisFileDirectory)touchstone.snk</AssemblyOriginatorKeyFile>
-    <PublicSign Condition="'$(OS)' != 'Windows_NT'">true</PublicSign>
   </PropertyGroup>
 
   <ItemGroup>
