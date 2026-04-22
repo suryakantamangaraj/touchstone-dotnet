@@ -26,6 +26,7 @@
 - **Export utilities** — CSV export and Touchstone writer for round-trip fidelity
 - **Async support** — `ParseAsync()` with cancellation token
 - **Cross-platform** — targets `net6.0` and `netstandard2.1`
+- **Ecosystem breadth** — check out the [Python version](https://github.com/suryakantamangaraj/touchstone-python) for Python-based workflows
 - **Zero dependencies** — pure .NET, no external packages
 
 ---
@@ -185,14 +186,22 @@ Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for gui
 
 ## 💬 Community
 
-- ⭐ **Star this repo** and related RF/microwave projects to help them grow — then mention your project in context to build visibility.
-- 💡 **Share feedback** via [GitHub Discussions](https://github.com/suryakantamangaraj/touchstone-dotnet/discussions) — we'd love to hear how you're using the library, what's working, and what could be better.
+- ⭐ **Star this repo** and related RF/microwave projects to help them grow - then mention your project in context to build visibility.
+- 💡 **Share feedback** via [GitHub Discussions](https://github.com/suryakantamangaraj/touchstone-dotnet/discussions) - we'd love to hear how you're using the library, what's working, and what could be better.
 
 ---
 
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 💖 Support & Funding
+
+If this library helps you in your RF/microwave engineering work, consider supporting its maintenance and the development of new features:
+- **[Sponsor on GitHub](https://github.com/sponsors/suryakantamangaraj)**
+- ⭐ **Star the project** to help it gain visibility in the engineering community.
 
 ---
 
